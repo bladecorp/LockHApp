@@ -89,7 +89,7 @@ public class SuperView implements Serializable{
 					MensajeGrowl.mostrar("No se encontraron registros en esa fecha", FacesMessage.SEVERITY_WARN);
 				}
 			}catch(Exception ex){
-				MensajeGrowl.mostrar("Ocurrió una excepción al recuperar el historial", FacesMessage.SEVERITY_FATAL);
+				MensajeGrowl.mostrar("Ocurrio una excepcion al recuperar el historial", FacesMessage.SEVERITY_FATAL);
 			}
 		}else{
 			MensajeGrowl.mostrar("Primero debe seleccionar una cuenta de usuario", FacesMessage.SEVERITY_ERROR);

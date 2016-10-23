@@ -79,7 +79,7 @@ public class AdminView implements Serializable {
 				if(exito){
 					usuario = new Usuario();
 					usuarios = usuarioService.obtenerUsuariosPorIdCliente(clienteSel);
-					MensajeGrowl.mostrar("El usuario se guardó exitosamente", FacesMessage.SEVERITY_INFO);
+					MensajeGrowl.mostrar("El usuario se guardo exitosamente", FacesMessage.SEVERITY_INFO);
 				}else{
 					MensajeGrowl.mostrar("El nombre de usuario ya existe", FacesMessage.SEVERITY_ERROR);
 				}
@@ -96,7 +96,7 @@ public class AdminView implements Serializable {
 				clienteService.insertarCliente(cliente);
 				clientes = clienteService.obtenerClientes();
 				cliente = new Cliente();
-				MensajeGrowl.mostrar("El cliente se guardó exitosamente", FacesMessage.SEVERITY_INFO);;
+				MensajeGrowl.mostrar("El cliente se guardo exitosamente", FacesMessage.SEVERITY_INFO);;
 			} catch (Exception e) {
 				MensajeGrowl.mostrar("Error al guardar cliente", FacesMessage.SEVERITY_FATAL);
 			}
@@ -219,7 +219,7 @@ public class AdminView implements Serializable {
 			dependenciaService.guardarDependencias(listaAsociados, usuarioSel.getUsername(), usuarioSel.getIdTipousuario());
 			MensajeGrowl.mostrar("Asociados guardados correctamente", FacesMessage.SEVERITY_INFO);
 		} catch (Exception e) {
-			MensajeGrowl.mostrar("Ocurrió una excepción al guardar asociados", FacesMessage.SEVERITY_FATAL);
+			MensajeGrowl.mostrar("Ocurrio una excepción al guardar asociados", FacesMessage.SEVERITY_FATAL);
 		}
 	}
 	

@@ -43,7 +43,7 @@ public class UserView implements Serializable{
 				codigo = usuarioService.generarCodigo(clave1, clave2, usuarioDTO.getUsername(), placasEco, usuarioDTO.getIdCliente());
 				RequestContext.getCurrentInstance().execute("PF('dlg').show();");
 			} catch (Exception e) {
-				MensajeGrowl.mostrar("Ocurrió un error al generar el código: "+e.getMessage(), FacesMessage.SEVERITY_FATAL);
+				MensajeGrowl.mostrar("Ocurrio un error al generar el codigo: "+e.getMessage(), FacesMessage.SEVERITY_FATAL);
 			}
 		}
 	}
@@ -54,7 +54,7 @@ public class UserView implements Serializable{
 			return false;
 		}
 		if(placasEco.trim().isEmpty()){
-			MensajeGrowl.mostrar("Debe ingresar las placas o número económico de la unidad.", FacesMessage.SEVERITY_ERROR);
+			MensajeGrowl.mostrar("Debe ingresar las placas o numero economico de la unidad.", FacesMessage.SEVERITY_ERROR);
 			return false;
 		}
 		return true;
