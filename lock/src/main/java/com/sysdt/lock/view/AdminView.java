@@ -219,7 +219,7 @@ public class AdminView implements Serializable {
 			dependenciaService.guardarDependencias(listaAsociados, usuarioSel.getUsername(), usuarioSel.getIdTipousuario());
 			MensajeGrowl.mostrar("Asociados guardados correctamente", FacesMessage.SEVERITY_INFO);
 		} catch (Exception e) {
-			MensajeGrowl.mostrar("Ocurrio una excepción al guardar asociados", FacesMessage.SEVERITY_FATAL);
+			MensajeGrowl.mostrar("Ocurrio una excepcion al guardar asociados", FacesMessage.SEVERITY_FATAL);
 		}
 	}
 	

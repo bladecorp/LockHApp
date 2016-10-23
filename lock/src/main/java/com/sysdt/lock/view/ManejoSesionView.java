@@ -58,7 +58,7 @@ public class ManejoSesionView implements Serializable{
 			client = !client.contentEquals("SYSDT")?"?c="+client:"";
 			ec.invalidateSession();
 			try {
-				MensajeGrowl.mostrar("La sesión se cerro exitosamente", FacesMessage.SEVERITY_INFO);
+				MensajeGrowl.mostrar("La sesion se cerro exitosamente", FacesMessage.SEVERITY_INFO);
 				ec.getFlash().setKeepMessages(true);
 				String url = "login.xhtml"+client;
 				ec.redirect(url);
