@@ -228,7 +228,7 @@
                 <assembleDirectory>target</assembleDirectory>
                 <programs>
                     <program>
-                        <mainClass>launch.Main</mainClass>
+                        <mainClass>com.sysdt.lock.main.Main</mainClass>
                         <name>webapp</name>
                     </program>
                 </programs>
