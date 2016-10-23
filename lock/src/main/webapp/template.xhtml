@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="estilos.css" />
+<!-- 	<h:outputScript library="js" name="index.js" /> -->
+	<link rel="stylesheet"
+		href="resources/vendors/fontawesome/css/font-awesome.min.css" />
+	<!-- 		<h:outputStylesheet library="css" name="/vendors/fontawesome/css/font-awesome.min.css" /> -->
+	<link rel="shortcut icon"
+		href="resources/imgs/#{manejoSesionView.usuarioDTO.cliente.logo}"
+		type="image/x-png" />
+
+	<!-- 	<h:outputScript library="js" value="calendar_es.js"></h:outputScript> -->
+	<script type="text/javascript" src="resources/js/calendar_es.js"></script>
+	<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+	<title><ui:insert name="title">Lock #{manejoSesionView.usuarioDTO.cliente.nombre}</ui:insert></title>
+</h:head>
+<h:body>
+
+	<div class="container" style="margin:0 auto; width:100%;">
+
+		<ui:insert name="header">
+			<h:form id="form1">
+				
+
+
+
+				<nav class="navbar navbar-default">
+<!-- 					<div class="container-fluid"> -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse"
+								data-target="#trgt"
+								aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="#">
+								<h:outputText value="#{manejoSesionView.usuarioDTO.cliente.nombre}" />
+							</a>
+						</div>
+
+						<div class="navbar-collapse collapse"
+							id="trgt" aria-expanded="false"
+							style="height: 1px;">
+							<ul class="nav navbar-nav navbar-right">
+								<c:if test="#{manejoSesionView.usuarioDTO.idTipousuario == 1}">
+									<li>
+										<p:commandLink id="linkAdmin" 
+											value="Administración" action="#{manejoSesionView.redirigir(3)}" />
+									</li>
+								</c:if>
+								<c:if test="#{manejoSesionView.usuarioDTO.idTipousuario != 3}">
+									<li>
+										<p:commandLink id="linkReportes" 
+											value="Reportes" action="#{manejoSesionView.redirigir(2)}" />
+									</li>
+								</c:if>
+								<c:if test="#{manejoSesionView.usuarioDTO.idTipousuario != 3}">
+									<li>
+										<p:commandLink id="linkCodigos" 
+											value="Generación de Codigos"
+											action="#{manejoSesionView.redirigir(1)}" />
+									</li>
+								</c:if>
+								<li >
+									<p:commandLink styleClass="btn btn-danger"
+										value="Cerrar Sesión"
+										action="#{manejoSesionView.cerrarSesionUsuario}" />
+								</li>
+								
+							</ul>
+						</div>
+<!-- 					</div> -->
+				</nav>
+
+			</h:form>
+		</ui:insert>
+		<ui:insert name="content">
+			NO CONTENT
+		</ui:insert>
+		<ui:insert name="footer">
+
+		</ui:insert>
+		<ui:insert name="scripts">
+			<script>
+// 				$(document).ready(function(){
+// 					console.log("INICIO JQUERY");
+					
+// 					$('#form1\\:linkAdmin').click(function(){console.log("ADMIN");
+// 						quitarActive();
+// 						$('#form1\\:linkAdmin').addClass('active');
+// 					});
+					
+// 					$('#linkReportes').click(function(){console.log("REPORTES");
+// 						quitarActive();
+// 						$('#linkReportes').addClass('active');
+// 					});
+					
+// 					$('#linkCodigos').click(function(){console.log("CODIGOS");
+// 						quitarActive();
+// 						$('#linkCodigos').addClass('active');
+// 					});
+					
+// 					function quitarActive(){
+// 						$('#linkAdmin').removeClass('active');
+// 						$('#linkReportes').removeClass('active');
+// 						$('#linkCodigos').removeClass('active');
+// 					}
+					
+					
+// 				});
+			</script>
+		</ui:insert>
+		
+		
+	</div>
+
+</h:body>
+</html>
