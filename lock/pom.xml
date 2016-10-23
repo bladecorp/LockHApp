@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sysdt</groupId>
 	<artifactId>lock</artifactId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>lock Maven Webapp</name>
 	<url>http://maven.apache.org</url>
@@ -166,38 +166,38 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		
+
 		<!-- TOMCAT EMBEDDED FOR HEROKU -->
-		 <dependency>
-        <groupId>org.apache.tomcat.embed</groupId>
-        <artifactId>tomcat-embed-core</artifactId>
-        <version>${tomcat.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.tomcat.embed</groupId>
-        <artifactId>tomcat-embed-logging-juli</artifactId>
-        <version>${tomcat.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.tomcat.embed</groupId>
-        <artifactId>tomcat-embed-jasper</artifactId>
-        <version>${tomcat.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.tomcat</groupId>
-        <artifactId>tomcat-jasper</artifactId>
-        <version>${tomcat.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.tomcat</groupId>
-        <artifactId>tomcat-jasper-el</artifactId>
-        <version>${tomcat.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.tomcat</groupId>
-        <artifactId>tomcat-jsp-api</artifactId>
-        <version>${tomcat.version}</version>
-    </dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.tomcat.embed</groupId> -->
+<!-- 			<artifactId>tomcat-embed-core</artifactId> -->
+<!-- 			<version>${tomcat.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.tomcat.embed</groupId> -->
+<!-- 			<artifactId>tomcat-embed-logging-juli</artifactId> -->
+<!-- 			<version>${tomcat.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.tomcat.embed</groupId> -->
+<!-- 			<artifactId>tomcat-embed-jasper</artifactId> -->
+<!-- 			<version>${tomcat.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.tomcat</groupId> -->
+<!-- 			<artifactId>tomcat-jasper</artifactId> -->
+<!-- 			<version>${tomcat.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.tomcat</groupId> -->
+<!-- 			<artifactId>tomcat-jasper-el</artifactId> -->
+<!-- 			<version>${tomcat.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.tomcat</groupId> -->
+<!-- 			<artifactId>tomcat-jsp-api</artifactId> -->
+<!-- 			<version>${tomcat.version}</version> -->
+<!-- 		</dependency> -->
 
 	</dependencies>
 	<build>
@@ -219,30 +219,54 @@
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
 				<version>${mybatis.generator.version}</version>
 			</plugin>
-			
+
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.mojo</groupId> -->
+<!-- 				<artifactId>appassembler-maven-plugin</artifactId> -->
+<!-- 				<version>1.1.1</version> -->
+<!-- 				<configuration> -->
+<!-- 					<assembleDirectory>target</assembleDirectory> -->
+<!-- 					<programs> -->
+<!-- 						<program> -->
+<!-- 							<mainClass>com.sysdt.lock.main.Main</mainClass> -->
+<!-- 							<name>webapp</name> -->
+<!-- 						</program> -->
+<!-- 					</programs> -->
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<phase>package</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>assemble</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+
 			<plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>appassembler-maven-plugin</artifactId>
-            <version>1.1.1</version>
-            <configuration>
-                <assembleDirectory>target</assembleDirectory>
-                <programs>
-                    <program>
-                        <mainClass>com.sysdt.lock.main.Main</mainClass>
-                        <name>webapp</name>
-                    </program>
-                </programs>
-            </configuration>
-            <executions>
-                <execution>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>assemble</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-			
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.github.jsimone</groupId>
+									<artifactId>webapp-runner</artifactId>
+									<version>8.0.30.2</version>
+									<destFileName>webapp-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 
 	</build>
